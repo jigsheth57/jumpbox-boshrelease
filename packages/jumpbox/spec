@@ -51,3 +51,6 @@ files:
     # zip
   - jumpbox/zip30.tar.gz
   - jumpbox/unzip60.tar.gz
+
+    # oracle jdk
+  - jumpbox/jdk-8u151-linux-x64.tar.gz

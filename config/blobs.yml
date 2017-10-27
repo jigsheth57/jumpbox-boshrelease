@@ -30,6 +30,14 @@ jumpbox/bins/nats:
   size: 7040936
   object_id: d7763255-0cca-43f7-5f74-7aff1fc45e34
   sha: 39f00b44c10e332df5f0bff518c1aa2a4dc74792
+jumpbox/bins/om:
+  size: 10135103
+  object_id: 6ee6d4be-5442-49b7-6159-5244878a88f1
+  sha: 26c93d0e50660db155e40948013e122b6ab77322
+jumpbox/bins/pivnet:
+  size: 8873044
+  object_id: 96243938-a2e5-4d6a-4832-f335641b4844
+  sha: cef98ff0a9b38d2456c0037dbb147306f796b2be
 jumpbox/bins/safe:
   size: 7664870
   object_id: b5382f29-2bf5-404a-602d-fed239fd1f3b
@@ -86,6 +94,10 @@ jumpbox/cloudfoundry-utils/release-differ:
   size: 2199
   object_id: 28c55282-aa7e-4c5b-4e4b-49c1edbef3f1
   sha: 87bfb4ffafafc9ec2c98069590c55cd8e3e7980c
+jumpbox/credhub-linux-1.5.0.tgz:
+  size: 2782179
+  object_id: 6460ea77-ac56-49a3-5088-5c8896c959eb
+  sha: 5de882ff480a2a45e98c0f1af8cbff5146748227
 jumpbox/curl-7.50.3.tar.gz:
   size: 8908593
   object_id: 59d933c9-ef19-4357-4590-7be339e5efd6
@@ -94,6 +106,10 @@ jumpbox/git-2.14.1.tar.gz:
   size: 6987933
   object_id: 5542b295-2abb-44cc-7673-64c445b3bf0d
   sha: e173270a5f224078e3f6c639937da5bd84045225
+jumpbox/jdk-8u151-linux-x64.tar.gz:
+  size: 189736377
+  object_id: 263342c9-1e48-49ba-7415-63340649e3bd
+  sha: 5598835566f55c1a785892d9e4e7868179987ed3
 jumpbox/jq-1.5.tar.gz:
   size: 739309
   object_id: eaeb1e85-8b7f-46b9-578a-463bf95701bc
