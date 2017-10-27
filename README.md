@@ -23,8 +23,8 @@ properties:
                                        # and runs `./install` from inside the repo, as
                                        # the user
       setup_script: /path/to/script    # runs after account creation, and environment
-                                       # installation. the default value runs a script 
-                                       # to set up rvm and install some ruby gems we 
+                                       # installation. the default value runs a script
+                                       # to set up rvm and install some ruby gems we
                                        # find useful
       ssh_keys:
       - ssh-rsa my-key-here            # adds an ssh-key to the users authorized keys file
@@ -51,3 +51,7 @@ properties:
 - vim 7.4
 - wget 1.18
 - zip 3.0
+- om 0.27.0
+- pivnet 0.0.49
+- credhub 1.5.0
+- oracle jdk 8.151
