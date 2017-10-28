@@ -19,6 +19,9 @@ files:
   - jumpbox/bins/terraform
   - jumpbox/bins/tmate
   - jumpbox/bins/vault
+  - jumpbox/bins/om
+  - jumpbox/bins/pivnet
+  - jumpbox/bins/credhub
   - jumpbox/cloudfoundry-utils/*
 
     # curl
