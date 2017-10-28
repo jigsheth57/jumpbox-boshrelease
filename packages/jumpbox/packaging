@@ -111,12 +111,16 @@ n=$((n + 1))
 # http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf/jdk-8u151-linux-x64.tar.gz
 (tar -xzvf jumpbox/jdk-8u151-linux-x64.tar.gz
  cp -r jdk1.8.0_151 ${BOSH_INSTALL_TARGET}
+ update-alternatives --install /usr/bin/java java ${BOSH_INSTALL_TARGET}/jdk1.8.0_151/bin/java 10
+ update-alternatives --install /usr/bin/javac javac ${BOSH_INSTALL_TARGET}/jdk1.8.0_151/bin/javac 10
+ update-alternatives --display java
+ update-alternatives --display javac) &
 n=$((n + 1))
 
 # credhub cli
 # https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/1.5.0/credhub-linux-1.5.0.tgz
 (tar -xzvf jumpbox/credhub-linux-1.5.0.tgz
- cp -a credhub ${BOSH_INSTALL_TARGET}/bin
+ cp -a credhub ${BOSH_INSTALL_TARGET}/bin) &
 n=$((n + 1))
 
 # ZIP
