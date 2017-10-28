@@ -1,0 +1,28 @@
+name: jumpbox
+version: 4.3.7.3
+commit_hash: 9c09d21
+uncommitted_changes: false
+jobs:
+- name: acceptance-tests
+  version: 6bd6b56b5a78f0b76745d02bb89ff5006335fb2d
+  fingerprint: 6bd6b56b5a78f0b76745d02bb89ff5006335fb2d
+  sha1: 51ec9f7c34b1292daffebc902a197c2b80c62b32
+- name: jumpbox
+  version: 42e208d6e31bf882bb576f8701fe055944d7d45a
+  fingerprint: 42e208d6e31bf882bb576f8701fe055944d7d45a
+  sha1: 8ed8123136d82824d92b9a0cd005bfc02e75fe30
+packages:
+- name: golang
+  version: 7bddc02ea4a7cc8f325253cea9dbe01ab6ea8129
+  fingerprint: 7bddc02ea4a7cc8f325253cea9dbe01ab6ea8129
+  sha1: 8a38a65a4115ebcb8a9e5d931b2355dd91481ded
+  dependencies: []
+- name: jumpbox
+  version: da76e8076b7c551809de38062ca2d7141be332ca
+  fingerprint: da76e8076b7c551809de38062ca2d7141be332ca
+  sha1: f23c232b1c4525099dbdde5ff7e9027fb7b0f86a
+  dependencies: []
+license:
+  version: a00ab0d4170cb74ed8f464700c229556099d14b8
+  fingerprint: a00ab0d4170cb74ed8f464700c229556099d14b8
+  sha1: 793c69b8e755bd63916a9c9ac99bb02d74764c3b
