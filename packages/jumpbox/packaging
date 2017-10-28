@@ -113,12 +113,6 @@ n=$((n + 1))
  cp -r jdk1.8.0_151 ${BOSH_INSTALL_TARGET}) &
 n=$((n + 1))
 
-# credhub cli
-# https://github.com/cloudfoundry-incubator/credhub-cli/releases/download/1.5.0/credhub-linux-1.5.0.tgz
-(tar -xzvf jumpbox/credhub-linux-1.5.0.tgz
- cp -a credhub ${BOSH_INSTALL_TARGET}/bin) &
-n=$((n + 1))
-
 # ZIP
 # http://www.linuxfromscratch.org/blfs/view/svn/general/zip.html
 # http://downloads.sourceforge.net/infozip/zip30.tar.gz

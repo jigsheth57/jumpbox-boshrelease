@@ -18,6 +18,10 @@ jumpbox/bins/cf:
   size: 16626464
   object_id: 67e12022-6645-421a-7cf3-1e964286c105
   sha: 0388d70c4a9292bd01104eb699331fab57718c8d
+jumpbox/bins/credhub:
+  size: 8288887
+  object_id: 8906da09-1a71-476b-4205-2c62febe0520
+  sha: 7b31f9fe74f1d2ff07d1c879df2e3e9295c37161
 jumpbox/bins/esuf:
   size: 7305569
   object_id: c4a3ff70-4a83-4b23-70c7-4d67a20603bd
@@ -94,10 +98,6 @@ jumpbox/cloudfoundry-utils/release-differ:
   size: 2199
   object_id: 28c55282-aa7e-4c5b-4e4b-49c1edbef3f1
   sha: 87bfb4ffafafc9ec2c98069590c55cd8e3e7980c
-jumpbox/credhub-linux-1.5.0.tgz:
-  size: 2782179
-  object_id: 6460ea77-ac56-49a3-5088-5c8896c959eb
-  sha: 5de882ff480a2a45e98c0f1af8cbff5146748227
 jumpbox/curl-7.50.3.tar.gz:
   size: 8908593
   object_id: 59d933c9-ef19-4357-4590-7be339e5efd6
