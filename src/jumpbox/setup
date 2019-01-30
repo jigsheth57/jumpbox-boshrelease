@@ -14,21 +14,9 @@ fi
 
 # install ruby
 
-<<<<<<< HEAD
-rvm install ruby-2.3
-rvm --default use 2.3
-gem install --no-ri --no-rdoc bosh_cli bosh-workspace cf-uaac
-
-# update java
-sudo update-alternatives --install /usr/bin/java java /var/vcap/packages/jumpbox/jdk1.8.0_151/bin/java 10
-sudo update-alternatives --install /usr/bin/javac javac /var/vcap/packages/jumpbox/jdk1.8.0_151/bin/javac 10
-update-alternatives --display java
-update-alternatives --display javac
-=======
 rvm install ruby-2.4
 rvm --default use 2.4
 gem install --no-ri --no-rdoc cf-uaac
 
 # Uninstall BOSH v1 if it is installed
 gem uninstall -aIx bosh_cli bosh-workspace
->>>>>>> upstream/master

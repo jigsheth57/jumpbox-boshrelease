@@ -21,9 +21,6 @@ files:
   - jumpbox/bins/terraform
   - jumpbox/bins/tmate
   - jumpbox/bins/vault
-  - jumpbox/bins/om
-  - jumpbox/bins/pivnet
-  - jumpbox/bins/credhub
   - jumpbox/cloudfoundry-utils/*
 
     # curl
@@ -50,6 +47,3 @@ files:
     # zip
   - jumpbox/zip30.tar.gz
   - jumpbox/unzip60.tar.gz
-
-    # oracle jdk
-  - jumpbox/jdk-8u151-linux-x64.tar.gz

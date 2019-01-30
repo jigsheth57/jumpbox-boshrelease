@@ -19,23 +19,6 @@ keys.  Here's an example ops file that you can modify and specify
 with the `-o` option to `bosh deploy`:
 
 ```
-<<<<<<< HEAD
-properties:
-  jumpbox:
-    hostname: my-jumpbox-hostname      # sets hostname on the box
-    users:
-    - name: my-user-1                  # creates an account named `my-user-1`
-      shell: /bin/bash                 # sets the account's shell to bash
-      env: https://github.com/my/env   # clones a git repo of an environment to `~/env`
-                                       # and runs `./install` from inside the repo, as
-                                       # the user
-      setup_script: /path/to/script    # runs after account creation, and environment
-                                       # installation. the default value runs a script
-                                       # to set up rvm and install some ruby gems we
-                                       # find useful
-      ssh_keys:
-      - ssh-rsa my-key-here            # adds an ssh-key to the users authorized keys file
-=======
 ---
 - type: replace
   path: /instance_groups/name=jumpbox/jobs/name=jumpbox/properties/users/-
@@ -51,7 +34,6 @@ properties:
                                       # find useful
     ssh_keys:
       - ssh-rsa my-key-here           # adds an ssh-key to the users authorized keys file
->>>>>>> upstream/master
 ```
 
 If you don't want a user to have sudo access, set `sudo: no` on
@@ -82,7 +64,3 @@ installed on the instance, versions, etc.
 - vim 7.4
 - wget 1.18
 - zip 3.0
-- om 0.27.0
-- pivnet 0.0.49
-- credhub 1.5.0
-- oracle jdk 8.151
