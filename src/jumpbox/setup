@@ -5,7 +5,7 @@ if [[ ! -f ~/.rvmrc ]]; then
 	echo rvm_silence_path_mismatch_check_flag=1 > ~/.rvmrc
 fi
 if [[ -z "$(command -v rvm)" ]]; then
-	gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+	gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 	curl -sSL https://get.rvm.io | bash -s stable --ruby
 
 	source ~/.rvm/scripts/rvm
@@ -14,6 +14,7 @@ fi
 
 # install ruby
 
+<<<<<<< HEAD
 rvm install ruby-2.3
 rvm --default use 2.3
 gem install --no-ri --no-rdoc bosh_cli bosh-workspace cf-uaac
@@ -23,3 +24,11 @@ sudo update-alternatives --install /usr/bin/java java /var/vcap/packages/jumpbox
 sudo update-alternatives --install /usr/bin/javac javac /var/vcap/packages/jumpbox/jdk1.8.0_151/bin/javac 10
 update-alternatives --display java
 update-alternatives --display javac
+=======
+rvm install ruby-2.4
+rvm --default use 2.4
+gem install --no-ri --no-rdoc cf-uaac
+
+# Uninstall BOSH v1 if it is installed
+gem uninstall -aIx bosh_cli bosh-workspace
+>>>>>>> upstream/master

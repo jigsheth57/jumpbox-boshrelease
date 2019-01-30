@@ -19,16 +19,16 @@ check() {
 
 check bosh-init -v
 check cf --version
+check credhub --version
 check genesis version
 check safe version
 # WHA?  there is no shield version command?
 #check shield version
 check spiff -v
-check spruce -v
 check vault -v
 check curl --version
+check fly --version
 check git --version
-check pwgen 16 1
 check tmux -V
 check tree --version
 check vim --version
@@ -36,8 +36,3 @@ check wget --version
 check zip -v
 check unzip -v
 check go version
-
-echo
-echo "--------------------------------------------------"
-echo "Errand acceptance-tests is complete; exit status $EXITSTATUS"
-exit $EXITSTATUS

@@ -6,16 +6,18 @@ files:
 
     # pre-compiled binaries / scripts
   - jumpbox/bins/bosh-init
-  - jumpbox/bins/bosh2
+  - jumpbox/bins/bosh
   - jumpbox/bins/certstrap
+  - jumpbox/bins/credhub
+  - jumpbox/bins/fly
   - jumpbox/bins/cf
   - jumpbox/bins/esuf
   - jumpbox/bins/genesis
+  - jumpbox/bins/jq
   - jumpbox/bins/nats
   - jumpbox/bins/safe
   - jumpbox/bins/shield
   - jumpbox/bins/spiff
-  - jumpbox/bins/spruce
   - jumpbox/bins/terraform
   - jumpbox/bins/tmate
   - jumpbox/bins/vault
@@ -25,31 +27,25 @@ files:
   - jumpbox/cloudfoundry-utils/*
 
     # curl
-  - jumpbox/curl-7.50.3.tar.gz
+  - jumpbox/curl-7.63.0.tar.gz
 
     # git
-  - jumpbox/git-2.14.1.tar.gz
-
-    # jq
-  - jumpbox/jq-1.5.tar.gz
-
-    # pwgen
-  - jumpbox/pwgen-2.07.tar.gz
+  - jumpbox/git-2.20.1.tar.gz
 
     # tmux
-  - jumpbox/libevent-2.0.22-stable.tar.gz
-  - jumpbox/tmux-2.2.tar.gz
+  - jumpbox/libevent-2.1.8-stable.tar.gz
+  - jumpbox/tmux-2.8.tar.gz
   - jumpbox/tmux.conf
 
     # tree
   - jumpbox/tree-1.7.0.tar.gz
 
     # vim
-  - jumpbox/vim-8.0.0386.tar.gz
+  - jumpbox/vim-8.1.0789.tar.gz
   - jumpbox/vimrc
 
     # wget
-  - jumpbox/wget-1.18.tar.gz
+  - jumpbox/wget-1.20.tar.gz
 
     # zip
   - jumpbox/zip30.tar.gz

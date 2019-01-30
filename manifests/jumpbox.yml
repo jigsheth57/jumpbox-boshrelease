@@ -1,0 +1,47 @@
+name: jumpbox-ci
+
+instance_groups:
+- name: jumpbox
+  instances: 1
+  azs:       [z1]
+  stemcell:  default
+  vm_resources:
+    cpu: 2
+    ram: 2048
+    ephemeral_disk_size: 40_960
+  networks:
+    - name: default
+  jobs:
+    - { release: jumpbox, name: jumpbox }
+    - { release: jumpbox, name: inventory }
+
+properties:
+  jumpbox:
+    env:
+      FOO: BAR
+    users:
+      - name: alice
+      - name: bob
+      - name: eve
+        shell: /bin/sh
+    delete:
+      - chris
+
+update:
+  canaries: 0
+  max_in_flight: 1
+  serial: true
+  canary_watch_time: 1000-120000
+  update_watch_time: 1000-120000
+
+stemcells:
+- alias:   default
+  os:      ubuntu-xenial
+           # minimum v170.x of Xenial REQUIRED
+  version: latest
+
+releases:
+- name: jumpbox
+  version: 4.5.1
+  url: https://github.com/cloudfoundry-community/jumpbox-boshrelease/releases/download/v4.5.1/jumpbox-4.5.1.tgz
+  sha1: 975624fa069becff4c3f5ff003b8cbf4cbc874af

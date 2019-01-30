@@ -1,4 +1,9 @@
 builds:
+<<<<<<< HEAD
+=======
+  009166f1-97b9-4cec-9a38-30ec92f8e8d2:
+    version: 4.3.10
+>>>>>>> upstream/master
   02ec1b0a-f5c6-4136-8a8d-fe1a80f051c2:
     version: 4.2.23
   036120e1-7984-4773-854c-74ef26b2d26c:
@@ -15,6 +20,11 @@ builds:
     version: 4.2.4
   1222e591-f468-418e-b306-0f1d70678d7a:
     version: "2"
+<<<<<<< HEAD
+=======
+  1753ed79-b8b4-4d3b-6dbf-182f31430dd1:
+    version: 4.4.3
+>>>>>>> upstream/master
   1a7473bb-52a0-483d-8e98-15dc7c178314:
     version: 4.2.2
   1f8c6d7c-8377-4c1f-9061-a440bfcb62d1:
@@ -23,24 +33,35 @@ builds:
     version: 4.0.14
   22f9c8a9-d08e-4d1e-9c57-ddf4ffc61c1b:
     version: 4.2.6
+<<<<<<< HEAD
   2449ad19-97b3-43ab-6cb4-060760a4fa8e:
     version: 4.3.7.3
   2a85c513-2a64-4805-601c-1b680630133b:
     version: 4.3.7
+=======
+>>>>>>> upstream/master
   2d1f8375-949d-4580-905b-b4255b27518e:
     version: 4.0.13
   2dd79501-7983-487a-9133-86e3cabc01d6:
     version: 4.3.4
   2ec9eaaf-dd25-4834-9042-56ff421b7ff9:
     version: 4.2.0
+<<<<<<< HEAD
   31028fda-07dc-4764-53f8-faf2a07c075e:
     version: 1.0.0
   3567c89f-3cae-4914-68d5-dc28e0609e77:
     version: 4.3.7.5
+=======
+>>>>>>> upstream/master
   37539ce5-e38e-43ca-8bb0-706113e1e448:
     version: 4.3.5
   38aa4cee-b31f-41f6-8955-9441a13142eb:
     version: 4.2.24
+<<<<<<< HEAD
+=======
+  394c6664-6d4b-4b38-a074-d00417930bd7:
+    version: 4.3.13
+>>>>>>> upstream/master
   3b23632f-f429-4b77-a4b5-4c74c7d11955:
     version: 4.2.10
   3c0f0c75-2d35-4c69-8699-af1aca443650:
@@ -53,6 +74,11 @@ builds:
     version: "3"
   4dcc30b6-1493-47ff-849d-f6f3560321d4:
     version: 4.3.0
+<<<<<<< HEAD
+=======
+  519931f0-8d1b-4930-5562-3ae3b2345925:
+    version: 4.4.2
+>>>>>>> upstream/master
   58f6b962-dd6c-4c3f-a006-422da6ea2047:
     version: 4.0.3
   5b6fab0b-af0f-4530-9f90-a329b188d728:
@@ -67,16 +93,30 @@ builds:
     version: 4.1.1
   6e37adde-7312-4b94-9e48-e07880bcc45f:
     version: 4.2.1
+<<<<<<< HEAD
   74bcef7c-baa2-4c15-9b01-ad754bb91b8b:
     version: 4.1.5
+=======
+  7095c3cd-3857-47d1-b3e4-5e4e9195b637:
+    version: 4.3.7
+  71a1282a-fe5a-4d5a-7b99-f9abbfb2763a:
+    version: 4.4.4
+  74bcef7c-baa2-4c15-9b01-ad754bb91b8b:
+    version: 4.1.5
+  816b4a4c-3b1b-4c6d-a09e-5a95a8dfd130:
+    version: 4.3.12
+>>>>>>> upstream/master
   83e0cbc4-9afe-401f-aefb-60d1525e2c72:
     version: 4.0.18
   867b10cf-550e-4fd7-b832-7009e2bf622f:
     version: 4.2.8
   89c46141-6dc2-4d67-9f74-6d274edaaeab:
     version: "1"
+<<<<<<< HEAD
   8c41d95e-ee6c-4e82-4a48-fd9bdebeeab8:
     version: 4.3.7.1
+=======
+>>>>>>> upstream/master
   8d5cf2ee-fede-462a-82cf-29e20ec8c789:
     version: 4.3.3
   9463f98a-906f-40c9-be4b-0e95f1089e63:
@@ -87,18 +127,27 @@ builds:
     version: 4.2.5
   a2764368-e963-41e3-bcfc-646d7d23e296:
     version: 4.2.12
+<<<<<<< HEAD
   a3fcb109-5cd5-4fd6-7486-17d5442686bf:
     version: 4.3.7.4
+=======
+>>>>>>> upstream/master
   a467bb04-1bab-497d-8b45-54e2eec38508:
     version: 4.3.6
   a91a916b-2fc5-4845-99e8-16e3bd67cdd1:
     version: 4.2.21
+<<<<<<< HEAD
+=======
+  a92be077-c164-4b72-5451-8cfb50cf713a:
+    version: 4.5.0
+>>>>>>> upstream/master
   ac5fd399-a844-47c3-8b64-74d1460ae551:
     version: 4.1.0
   b7f6e61d-9a2c-4ef7-b39f-672d82744e5e:
     version: 4.2.11
   bac67e06-bd1b-4f9e-8911-3a292cd75f91:
     version: 4.2.20
+<<<<<<< HEAD
   bb418305-ac71-4ba3-922a-93b3f2752aa1:
     version: 4.1.2
   d1575f26-a653-411d-915f-7179de8f217f:
@@ -109,6 +158,30 @@ builds:
     version: 4.0.15
   e4dd42ab-a4e1-4aba-70a6-5e38a6be17cc:
     version: 4.3.7.2
+=======
+  bb24afba-e914-40c3-aaf0-70bcc4550f70:
+    version: 4.3.9
+  bb418305-ac71-4ba3-922a-93b3f2752aa1:
+    version: 4.1.2
+  bd8aa652-d1be-4463-9a35-52d47338f99e:
+    version: 4.4.1
+  d059e734-05eb-47b8-a6e4-cb10c86f1c7e:
+    version: 4.3.8
+  d1575f26-a653-411d-915f-7179de8f217f:
+    version: 4.3.1
+  d3196789-0688-449e-9c8b-862c1010e21a:
+    version: 4.3.11
+  d4c15408-1cc5-4b7a-b5a2-3f7fb231e597:
+    version: 4.0.6
+  dd4b99e9-0f69-44e8-9d53-dc0f6eceb2a9:
+    version: 4.4.0
+  e088e68e-33b9-4da2-a6c9-2fd9cf9f8c20:
+    version: 4.0.15
+  e3f4ffe1-5df2-47a7-7c96-4aa918887c5c:
+    version: 4.4.5
+  e45d0331-2d85-4800-455a-8559dcb4012b:
+    version: 4.5.1
+>>>>>>> upstream/master
   e93bd0fd-ffad-4907-b9a6-4ccadd8bd4fe:
     version: 4.2.7
   ef96c918-222f-49a7-bad0-5c67343574d0:
@@ -121,6 +194,11 @@ builds:
     version: 4.2.16
   fb98f41d-3373-42cf-a74d-ae3ca499d6b5:
     version: 4.2.18
+<<<<<<< HEAD
+=======
+  fc6b6795-f8e6-4463-41d4-2c02fde08de1:
+    version: 4.4.6
+>>>>>>> upstream/master
   fcbf1ffe-ca0d-4df2-b29a-47637837be32:
     version: 4.2.9
 format-version: "2"

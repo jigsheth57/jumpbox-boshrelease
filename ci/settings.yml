@@ -1,30 +1,43 @@
 ---
 meta:
   name: jumpbox
-  url: https://ci.starkandwayne.com/
-  target: sw
-  test-errand: acceptance-tests
-  aws:
-    access_key: (( vault "secret/aws/cfcommunity:access" ))
-    secret_key: (( vault "secret/aws/cfcommunity:secret" ))
-  github:
-    owner: cloudfoundry-community
-    repo:  jumpbox-boshrelease
-    private_key:  (( vault "secret/pipelines/jumpbox-boshrelease/github:private" ))
-    access_token: (( vault "secret/pipelines/jumpbox-boshrelease/github:token" ))
+  target: pipes
+  test-errand: inventory
+  url: https://pipes.starkandwayne.com/
+
+  manifest:
+    path: ci/manifest.yml
+
+  git:
+    email: ci@starkandwayne.com
+    name:  Stark & Wayne CI Bot
+
   bosh-lite:
-    target: https://10.58.111.44:25555
-    deployment: jumpbox-warden
+    target: https://10.200.131.9:25555
+    username: ((thunder-dome.username))
+    password: ((thunder-dome.password))
+    cacert:   ((thunder-dome.ca-certificate))
+
+  aws:
+    access_key: ((cfcommunity.access))
+    secret_key: ((cfcommunity.secret))
+
+  github:
+    owner:        cloudfoundry-community
+    repo:         jumpbox-boshrelease
+    branch:       master
+    private_key:  ((github.private-key))
+    access_token: ((github.access-token))
+
   slack:
-    webhook: (( vault "secret/pipelines/jumpbox-boshrelease/slack:webhook" ))
-    channel: "#cf-community-pipeline"
-    blob_success:  '(( concat "$BUILD_PIPELINE_NAME: New version of $BUILD_JOB_NAME was detected, and updated in master. <" meta.url "/pipelines/$BUILD_PIPELINE_NAME| Cut a new release?>" ))'
-    blob_failure:  '(( concat "$BUILD_PIPELINE_NAME: :airplane_arriving: <" meta.url "/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME| Failed to update the blob for $BUILD_JOB_NAME>" ))'
+    webhook:      ((slack.webhook))
+    channel:      "#cf-community-pipeline"
+    blob_success: '(( concat "$BUILD_PIPELINE_NAME: New version of $BUILD_JOB_NAME was detected, and updated in master. <" meta.url "/pipelines/$BUILD_PIPELINE_NAME| Cut a new release?>" ))'
+    blob_failure: '(( concat "$BUILD_PIPELINE_NAME: :airplane_arriving: <" meta.url "/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME| Failed to update the blob for $BUILD_JOB_NAME>" ))'
 
 groups:
   - name: blobs
     jobs:
-    - spruce
     - genesis
     - safe
     - esuf
@@ -32,62 +45,6 @@ groups:
     - cloudfoundry-utils
 
 jobs:
-  - name: spruce # {{{
-    public: true
-    plan:
-    - aggregate:
-      - { get: git }
-      - { get: spruce, trigger: true }
-    - task: update-spruce
-      config:
-        platform: linux
-        image_resource:
-          type: docker-image
-          source:
-            repository: (( grab meta.image ))
-        inputs:
-        - name: git
-        - name: spruce
-        outputs:
-        - name: pushme
-        run:
-          path: ./git/ci/scripts/update-blob
-        params:
-          REPO_ROOT:        git
-          REPO_OUT:         pushme
-          RELEASE_DIR:      spruce
-          BLOB:             spruce
-          BLOB_BINARY:      spruce-linux-amd64
-          BLOB_DESTINATION: jumpbox/bins/spruce
-          AWS_ACCESS_KEY:   (( grab meta.aws.access_key ))
-          AWS_SECRET_KEY:   (( grab meta.aws.secret_key ))
-          BRANCH:       (( grab meta.github.branch ))
-      on_failure:
-        put: notify
-        params:
-          channel:  (( grab meta.slack.channel ))
-          username: (( grab meta.slack.username ))
-          icon_url: (( grab meta.slack.icon ))
-          text:     (( grab meta.slack.blob_failure ))
-    - put: git
-      params:
-        rebase: true
-        repository: pushme/git
-      on_success:
-        put: notify
-        params:
-          channel:  (( grab meta.slack.channel ))
-          username: (( grab meta.slack.username ))
-          icon_url: (( grab meta.slack.icon ))
-          text:     (( grab meta.slack.blob_success ))
-      on_failure:
-        put: notify
-        params:
-          channel:  (( grab meta.slack.channel ))
-          username: (( grab meta.slack.username ))
-          icon_url: (( grab meta.slack.icon ))
-          text:     (( grab meta.slack.blob_failure ))
-  # }}}
   - name: genesis # {{{
     public: true
     plan:
@@ -100,7 +57,8 @@ jobs:
         image_resource:
           type: docker-image
           source:
-            repository: (( grab meta.image ))
+            repository: (( grab meta.image.name ))
+            tag:        (( grab meta.image.tag ))
         inputs:
         - name: git
         - name: genesis
@@ -112,9 +70,11 @@ jobs:
           REPO_ROOT:        git
           REPO_OUT:         pushme
           RELEASE_DIR:      genesis
-          BLOB:             genesis
+          BLOB_DIR:         genesis
+          BLOB_NAME:        genesis
           BLOB_BINARY:      genesis
           BLOB_DESTINATION: jumpbox/bins/genesis
+          BLOB_CLEANUP:     jumpbox/bins/genesis
           AWS_ACCESS_KEY:   (( grab meta.aws.access_key ))
           AWS_SECRET_KEY:   (( grab meta.aws.secret_key ))
           BRANCH:       (( grab meta.github.branch ))
@@ -149,7 +109,8 @@ jobs:
         image_resource:
           type: docker-image
           source:
-            repository: (( grab meta.image ))
+            repository: (( grab meta.image.name ))
+            tag:        (( grab meta.image.tag ))
         inputs:
         - name: git
         - name: safe
@@ -161,9 +122,11 @@ jobs:
           REPO_ROOT:        git
           REPO_OUT:         pushme
           RELEASE_DIR:      safe
-          BLOB:             safe
+          BLOB_DIR:         safe
+          BLOB_NAME:        safe
           BLOB_BINARY:      safe-linux-amd64
           BLOB_DESTINATION: jumpbox/bins/safe
+          BLOB_CLEANUP:     jumpbox/bins/safe
           AWS_ACCESS_KEY:   (( grab meta.aws.access_key ))
           AWS_SECRET_KEY:   (( grab meta.aws.secret_key ))
           BRANCH:       (( grab meta.github.branch ))
@@ -205,7 +168,8 @@ jobs:
         image_resource:
           type: docker-image
           source:
-            repository: (( grab meta.image ))
+            repository: (( grab meta.image.name ))
+            tag:        (( grab meta.image.tag ))
         inputs:
         - name: git
         - name: esuf
@@ -217,9 +181,11 @@ jobs:
           REPO_ROOT:        git
           REPO_OUT:         pushme
           RELEASE_DIR:      esuf
-          BLOB:             esuf
+          BLOB_DIR:         esuf
+          BLOB_NAME:        esuf
           BLOB_BINARY:      esuf-linux-amd64
           BLOB_DESTINATION: jumpbox/bins/esuf
+          BLOB_CLEANUP:     jumpbox/bins/esuf
           AWS_ACCESS_KEY:   (( grab meta.aws.access_key ))
           AWS_SECRET_KEY:   (( grab meta.aws.secret_key ))
           BRANCH:       (( grab meta.github.branch ))
@@ -261,7 +227,8 @@ jobs:
         image_resource:
           type: docker-image
           source:
-            repository: (( grab meta.image ))
+            repository: (( grab meta.image.name ))
+            tag:        (( grab meta.image.tag ))
         inputs:
         - name: git
         - name: cf
@@ -273,10 +240,12 @@ jobs:
           REPO_ROOT:        git
           REPO_OUT:         pushme
           RELEASE_DIR:      cf
-          BLOB:             cf
           BLOB_SOURCE:      https://cli.run.pivotal.io/stable?release=linux64-binary&version=%s&source=github-rel&x=.tgz
+          BLOB_DIR:         cf
+          BLOB_NAME:        cf
           BLOB_BINARY:      cf
           BLOB_DESTINATION: jumpbox/bins/cf
+          BLOB_CLEANUP:     jumpbox/bins/cf
           AWS_ACCESS_KEY:   (( grab meta.aws.access_key ))
           AWS_SECRET_KEY:   (( grab meta.aws.secret_key ))
           BRANCH:           (( grab meta.github.branch ))
@@ -318,7 +287,8 @@ jobs:
         image_resource:
           type: docker-image
           source:
-            repository: (( grab meta.image ))
+            repository: (( grab meta.image.name ))
+            tag:        (( grab meta.image.tag ))
         inputs:
         - name: git
         - name: cloudfoundry-utils
@@ -330,9 +300,11 @@ jobs:
           REPO_ROOT:        git
           REPO_OUT:         pushme
           RELEASE_DIR:      cloudfoundry-utils
-          BLOB:             cloudfoundry-utils
+          BLOB_DIR:         cloudfoundry-utils
+          BLOB_NAME:        cloudfoundry-utils
           BLOB_BINARY:      '*'
           BLOB_DESTINATION: jumpbox/cloudfoundry-utils/
+          BLOB_CLEANUP:     jumpbox/cloudfoundry-utils/*
           AWS_ACCESS_KEY:   (( grab meta.aws.access_key ))
           AWS_SECRET_KEY:   (( grab meta.aws.secret_key ))
           BRANCH:           (( grab meta.github.branch ))
@@ -364,13 +336,6 @@ jobs:
    # }}}
 
 resources:
-  - name: spruce # {{{
-    type: github-release
-    source:
-      user: geofffranks
-      repository: spruce
-      access_token: (( grab meta.github.access_token ))
-  # }}}
   - name: genesis # {{{
     type: github-release
     source:
